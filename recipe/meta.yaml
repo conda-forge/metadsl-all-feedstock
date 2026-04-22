@@ -10,7 +10,7 @@ source:
   sha256: 99721ac07cf92293fbfa4419130ec22f84e29ef7213e64243be9fc2b28dc7d61
 
 build:
-  number: 0
+  number: 1
   noarch: python
 
 requirements:
@@ -21,6 +21,8 @@ requirements:
     - metadsl-llvm
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - metadsl
     - metadsl_core
@@ -36,14 +38,16 @@ outputs:
     requirements:
       host:
         - flit
-        - python >=3.8
+        - python {{ python_min }}
       run:
-        - python >=3.8
+        - python >={{ python_min }}
         - python-igraph >=0.8.0
         - typing_extensions
         - typing_inspect
         - ipython
     test:
+      requires:
+        - python {{ python_min }}
       imports:
         - metadsl
 
@@ -53,12 +57,14 @@ outputs:
     requirements:
       host:
         - flit
-        - python >=3.8
+        - python {{ python_min }}
       run:
         - jsonschema
         - ipython
-        - python >=3.8
+        - python >={{ python_min }}
     test:
+      requires:
+        - python {{ python_min }}
       imports:
         - typez
 
@@ -68,13 +74,15 @@ outputs:
     requirements:
       host:
         - flit
-        - python >=3.8
+        - python {{ python_min }}
       run:
         - ipython
         - metadsl
         - metadsl-rewrite
-        - python >=3.8
+        - python >={{ python_min }}
     test:
+      requires:
+        - python {{ python_min }}
       imports:
         - metadsl_core
 
@@ -84,12 +92,14 @@ outputs:
     requirements:
       host:
         - flit
-        - python >=3.8
+        - python {{ python_min }}
       run:
         - ipython
         - metadsl
-        - python >=3.8
+        - python >={{ python_min }}
     test:
+      requires:
+        - python {{ python_min }}
       imports:
         - metadsl_rewrite
 
@@ -99,15 +109,17 @@ outputs:
     requirements:
       host:
         - flit
-        - python >=3.8
+        - python {{ python_min }}
       run:
         - black
         - ipython
         - metadsl
         - metadsl-rewrite
-        - python >=3.8
+        - python >={{ python_min }}
         - typez
     test:
+      requires:
+        - python {{ python_min }}
       imports:
         - metadsl_visualize
 
@@ -117,16 +129,18 @@ outputs:
     requirements:
       host:
         - flit
-        - python >=3.8
+        - python {{ python_min }}
       run:
         - black
         - llvmlite
         - metadsl
         - metadsl-core
         - metadsl-rewrite
-        - python >=3.8
+        - python >={{ python_min }}
         - typez
     test:
+      requires:
+        - python {{ python_min }}
       imports:
         - metadsl_llvm
   
